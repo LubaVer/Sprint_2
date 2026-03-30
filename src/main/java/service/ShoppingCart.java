@@ -11,25 +11,26 @@ public class ShoppingCart {
 
     public  double getSumShoppingCart() {
         double summ = 0;
-        for (int i = 0; i < foods.length; i++) {
-            summ += this.foods[i].getPrice() * this.foods[i].getAmount();
+        for (Food food : foods) {
+            summ += food.getPrice() * food.getAmount();
         }
         return  summ;
     }
 
     public  double getSumShoppingCartWithDiscount() {
         double summ = 0;
-        for (int i = 0; i < foods.length; i++) {
-            summ += (this.foods[i].getPrice() * this.foods[i].getAmount()) * this.foods[i].getDiscount();
+        for (Food food : foods) {
+            summ += (food.getPrice() * food.getAmount()) *
+                    food.getDiscount();
         }
         return  summ;
     }
 
     public  double getSumShoppingCartForVegetarian() {
         double summ = 0;
-        for (int i = 0; i < foods.length; i++) {
-            if (this.foods[i].isVegetarian()) {
-                summ += this.foods[i].getPrice() * this.foods[i].getAmount();
+        for (Food food : foods) {
+            if (food.isVegetarian()) {
+                summ += food.getPrice() * food.getAmount();
             }
         }
         return  summ;
